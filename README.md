@@ -1,185 +1,184 @@
-# Animal Adoption System
+#  Animal Adoption System
 
-A comprehensive desktop application designed to streamline animal shelter operations by managing animal admissions, 
-tracking adopter registrations, and logging successful adoptions.
-
----
-
-## Project Type: JavaFX GUI
-
-This application is built with a **Graphical User Interface (GUI)** using **JavaFX**. It features an interactive sidebar navigation menu, dynamic form pages, and real-time list updates, completely eliminating the need for command-line interaction.
+A desktop application developed using **Java** and **JavaFX** to manage animals, adopters, and adoption records. The system applies Object-Oriented Programming (OOP) concepts and stores data using text files.
 
 ---
 
-# Main Features
+#  Project Description
+
+The **Animal Adoption System** is designed to help animal shelters organize the adoption process. It allows users to add animals, register adopters, perform adoption operations, generate reports, and save all data using text files.
+
+This project was developed as part of the **Object-Oriented Programming (OOP)** course.
+
+---
+
+#  Main Features
 
 ## Animal Management
-Add animals categorized by species (**Dog, Cat, Bird**) with unique IDs, age, gender, and adoption status tracking.
+- Add new animals.
+- Support different animal types (Dog, Cat, Bird).
+- Store animal information.
+- Track adoption status.
 
-## Adopter Registration
-Maintain a database of registered adopters including their contact information and physical addresses.
+## Adopter Management
+- Register adopters.
+- Store adopter information.
+- View adopter records.
 
-## Adoption Transaction Processing
-Pair available animals with registered adopters while automatically updating the animal status to **"Adopted"**.
+## Adoption Management
+- Adopt available animals.
+- Prevent duplicate adoptions.
+- Save adoption records.
 
-## Flat-File Database Persistent Storage
-The system automatically saves and loads all data using text files:
+## Reports
+- Total animals.
+- Available animals.
+- Adopted animals.
+- Total adopters.
+- Total adoptions.
+
+## File Handling
+
+The application automatically saves and loads data using:
 
 - `animals.txt`
 - `adopters.txt`
 - `adoptions.txt`
 
-This ensures that data is not lost after closing the application.
-
-## Dynamic Reports & Analytics
-The system provides reports showing:
-
-- Total registered animals
-- Total adopters
-- Total adoptions
-- Available animals
-- Adopted animals
-
 ---
 
-# OOP Concepts Used
+#  OOP Concepts Used
 
-This project demonstrates the main principles of **Object-Oriented Programming (OOP)**:
+### Encapsulation
+Private attributes are accessed through public getter and setter methods.
 
-## 1. Inheritance
+### Abstraction
+The `Animal` class is implemented as an abstract class.
 
-The abstract `Animal` class acts as a parent class that is extended by:
+### Inheritance
 
-- `Dog`
-- `Cat`
-- `Bird`
-
-These subclasses inherit common attributes and behaviors while representing different animal types.
-
----
-
-## 2. Polymorphism
-
-### Method Overriding
-The subclasses override the abstract `getType()` method to return their specific animal type.
-
-### Dynamic Binding
-Different animal objects are handled using `Animal` references in classes such as:
-
-- `FileManager`
-- `AdoptionGUI`
-
----
-
-## 3. Encapsulation
-
-All attributes in the main classes:
-
-- `Animal`
-- `Adopter`
-- `Adoption`
-
-are declared as private and accessed through:
-
-- Getters
-- Setters
-- Constructors
-
-This protects data and controls how information is modified.
-
----
-
-## 4. Abstraction
-
-The `Animal` class is declared as an **abstract class** to prevent creating direct Animal objects and to provide a common template for all animal types.
-
----
-
-# Main Classes
-
-## Main
-The starting point of the application. It manages:
-
-- Loading data when the program starts.
-- Saving data before closing.
-- Coordinating system operations.
-
-## AdoptionGUI
-Controls the JavaFX graphical user interface, including:
-
-- Interface layouts using `BorderPane` and `VBox`.
-- Navigation between pages.
-- User input validation.
-
-## FileManager
-Handles file operations:
-
-- Reading data from text files.
-- Writing data to text files.
-- Saving and restoring system information.
-
-## Animal (Abstract)
-The base class for all animals. It contains:
-
-- ID
-- Name
-- Age
-- Gender
-- Adoption Status
-
-## Dog / Cat / Bird
-Subclasses representing different animal species in the shelter.
-
-## Adopter
-Represents a person who wants to adopt an animal and stores adopter details.
-
-## Adoption
-Represents the adoption relationship between an `Animal` and an `Adopter`.
-
----
-
-# How to Run the Project
-
-## Prerequisites
-
-- Java Development Kit (**JDK 11 or higher**)
-- JavaFX SDK configured in your IDE
-
-Supported IDEs:
-
-- NetBeans
-- IntelliJ IDEA
-- Eclipse
-
----
-
-## Run via IDE
-
-1. Open the project folder in your IDE.
-
-2. Configure the JavaFX SDK library path.
-
-3. Add the following VM Options:
-
-```bash
---module-path "/path/to/javafx-sdk/lib" --add-modules javafx.controls
+```
+Animal
+├── Dog
+├── Cat
+└── Bird
 ```
 
-4. Run the `Main` class.
+### Polymorphism
+Different animal types are handled using the `Animal` reference.
+
+### Association
+The `Adoption` class links an `Animal` object with an `Adopter` object.
 
 ---
 
-# AI Usage Declaration
+# 📦 Main Classes
 
-ChatGPT was used as a learning assistant during the development of this project. 
-It helped me understand how to build the JavaFX GUI step by step, explain the code structure,
-and clarify programming concepts related to the interface. The project implementation, 
-testing, and final decisions were completed by the students.
+| Class | Responsibility | Key Attributes | Key Methods |
+|------|----------------|----------------|-------------|
+| **Main** | Starts the application, loads/saves data, and manages animals, adopters, and adoptions. | `animals`, `adopters`, `adoptions`, `fileManager` | `loadData()`, `saveData()`, `addAnimal()`, `addAdopter()`, `adoptAnimal()` |
+| **Animal** *(Abstract)* | Defines the common properties and behaviors shared by all animals. | `id`, `name`, `age`, `gender`, `adopted` | `getType()`, `isAdopted()`, `setAdopted()` |
+| **Dog** | Represents a dog available for adoption. | Inherited from `Animal` | `getType()` |
+| **Cat** | Represents a cat available for adoption. | Inherited from `Animal` | `getType()` |
+| **Bird** | Represents a bird available for adoption. | Inherited from `Animal` | `getType()` |
+| **Adopter** | Stores adopter information. | `id`, `name`, `phone`, `address` | Getters, `toString()` |
+| **Adoption** | Represents an adoption record between an animal and an adopter. | `animal`, `adopter`, `date` | Getters, `toString()` |
+| **FileManager** | Saves and loads application data using text files. | — | `saveAnimals()`, `loadAnimals()`, `saveAdopters()`, `loadAdopters()`, `saveAdoptions()`, `loadAdoptions()` |
+| **AdoptionGUI** | Provides the JavaFX graphical user interface. | JavaFX components | GUI pages and event handling |
 
 ---
 
-# Students
+#  Project Structure
 
-- Noor Ashraf Hassan Khattab — 2549011048  
-- Rewaa Mohammed Ghazi Almasri — 2549011052  
-- Raghad Ghassan Ali Jabr — 2549011057
+```
+Animal-Adoption-System
+│
+├── src
+│   └── javaappanimal
+│       ├── Main.java
+│       ├── Animal.java
+│       ├── Dog.java
+│       ├── Cat.java
+│       ├── Bird.java
+│       ├── Adopter.java
+│       ├── Adoption.java
+│       ├── FileManager.java
+│       └── AdoptionGUI.java
+│
+├── animals.txt
+├── adopters.txt
+├── adoptions.txt
+└── README.md
+```
+---
+
+#  How to Run
+
+## Requirements
+
+- Java JDK 8 or later
+- JavaFX
+- NetBeans IDE
+
+## Steps
+
+1. Clone or download the repository.
+2. Open the project in NetBeans.
+3. Configure JavaFX if needed.
+4. Run `Main.java`.
+5. Use the graphical interface to manage the adoption system.
+
+---
+
+#  Screenshots
+
+### Home Page
+
+*(Add screenshot here)*
+
+### Add Animal
+
+*(Add screenshot here)*
+
+### Add Adopter
+
+*(Add screenshot here)*
+
+### Adoption Page
+
+*(Add screenshot here)*
+
+### Reports
+
+*(Add screenshot here)*
+
+---
+
+#  AI Usage Declaration
+
+ChatGPT was used as a learning assistant during the development of this project. It was used to explain Java concepts, Object-Oriented Programming principles, JavaFX components, debugging, and documentation preparation. All code was reviewed, understood, and modified by the project team before submission.
+
+---
+
+#  Team Members
+
+| Student | Student ID |
+|---------|------------|
+|Rewaa Mohammed Ghazi Almasri |2549011052 |
+| Noor ashraf hassan khattab | 2549011048 |
+| Raghad Ghassan Ali Jabr | 2549011057 | 
+
+---
+
+#  Video Presentation
+
+**Video Link:**
+
+(https://youtu.be/-hhTWenULGQ?si=TctQRiv9MwuzPPxb)
+
+
+#  Course Information
+
+- **Course:** Object-Oriented Programming (OOP)
+- **Instructor:** Dr. Suheir Harb
+- **Academic Year:** 2026
