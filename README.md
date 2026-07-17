@@ -6,9 +6,11 @@ A desktop application developed using **Java** and **JavaFX** to manage animals,
 
 #  Project Description
 
-The **Animal Adoption System** is designed to help animal shelters organize the adoption process. It allows users to add animals, register adopters, perform adoption operations, generate reports, and save all data using text files.
+The **Animal Adoption System** aims to provide a platform that connects animal shelters with people interested in adopting animals. The system was developed using Java and is based on the principles of Object-Oriented Programming (OOP).
 
-This project was developed as part of the **Object-Oriented Programming (OOP)** course.
+The system enables shelter staff to add animal information and record adoption requests. It applies key OOP concepts, including Encapsulation, Inheritance, Polymorphism, and Abstraction, to organize the code and make the system easier to develop, maintain, and extend.
+
+The system also helps reduce manual procedures, organize animal and adopter records, and increase the chances of finding safe and suitable homes for animals.
 
 ---
 
