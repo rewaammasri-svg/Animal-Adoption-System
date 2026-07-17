@@ -155,7 +155,7 @@ Animal-Adoption-System
 
 ### Reports
 
-<img width="1001" height="687" alt="image" src="https://github.com/user-attachments/assets/21a11d71-39a7-4fc4-9625-c8e89a2a798e" />
+<img width="992" height="677" alt="image" src="https://github.com/user-attachments/assets/482ecb08-fcfc-4d7b-b590-aa31bcceb1c2" />
 
 
 ---
