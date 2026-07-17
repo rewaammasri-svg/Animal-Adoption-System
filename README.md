@@ -72,7 +72,7 @@ The `Adoption` class links an `Animal` object with an `Adopter` object.
 
 ---
 
-# 📦 Main Classes
+#  Main Classes
 
 | Class | Responsibility | Key Attributes | Key Methods |
 |------|----------------|----------------|-------------|
@@ -130,27 +130,31 @@ Animal-Adoption-System
 
 ---
 
-#  Screenshots
 
 ### Home Page
 
-*(Add screenshot here)*
+<img width="1002" height="685" alt="image" src="https://github.com/user-attachments/assets/dfcd4310-e995-4f10-a454-fdac73348946" />
+
 
 ### Add Animal
 
-*(Add screenshot here)*
+<img width="1001" height="682" alt="image" src="https://github.com/user-attachments/assets/484a1968-3405-45f4-9156-15fe1f566a7e" />
+
 
 ### Add Adopter
 
-*(Add screenshot here)*
+<img width="997" height="682" alt="image" src="https://github.com/user-attachments/assets/144279b4-7c4a-4593-9bd3-10c76e1e5a36" />
+
 
 ### Adoption Page
 
-*(Add screenshot here)*
+<img width="997" height="686" alt="image" src="https://github.com/user-attachments/assets/d2f45546-8c53-488c-9d6c-5c5afb6f320b" />
+
 
 ### Reports
 
-*(Add screenshot here)*
+<img width="1001" height="687" alt="image" src="https://github.com/user-attachments/assets/21a11d71-39a7-4fc4-9625-c8e89a2a798e" />
+
 
 ---
 
