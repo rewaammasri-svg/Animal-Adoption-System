@@ -94,18 +94,25 @@ public class AdoptionGUI {
         TextField id = field("Animal ID");
         TextField name = field("Animal Name");
         TextField age = field("Age");
-        TextField gender = field("Gender");
+        ComboBox<String> gender = new ComboBox<>();
+        gender.getItems().addAll("Male", "Female");
+        gender.setPromptText("Gender");
         
         Button save = new Button("Save Animal");
 
         save.setOnAction(e -> {
             
             if (type.getValue() == null ||id.getText().trim().isEmpty() || name.getText().trim().isEmpty() ||
-                age.getText().trim().isEmpty() ||gender.getText().trim().isEmpty()) {
+                age.getText().trim().isEmpty() || gender.getValue() == null) {
                 message("Please fill all fields.");
                return; 
             }
-
+            String animalId = id.getText().trim();
+           if (Main.searchAnimalById(animalId) != null) {
+            message("Animal ID already exists.");
+            return;
+           }
+            
            try {
                 int animalAge = Integer.parseInt(age.getText().trim());
 
@@ -115,13 +122,13 @@ public class AdoptionGUI {
                 }
 
                 Animal animal = null;
-
+                
                 if (type.getValue().equals("Dog")) {
-                    animal = new Dog(id.getText(), name.getText(),animalAge, gender.getText(), false);
+                    animal = new Dog(id.getText(), name.getText(),animalAge, gender.getValue(), false);
                 } else if (type.getValue().equals("Cat")) {
-                    animal = new Cat(id.getText(), name.getText(), Integer.parseInt(age.getText()), gender.getText(),false);
+                    animal = new Cat(id.getText(), name.getText(), Integer.parseInt(age.getText()), gender.getValue(),false);
                 } else if (type.getValue().equals("Bird")) {
-                    animal = new Bird(id.getText(), name.getText(), Integer.parseInt(age.getText()), gender.getText(), false);
+                    animal = new Bird(id.getText(), name.getText(), Integer.parseInt(age.getText()), gender.getValue(), false);
                 }
 
                 Main.addAnimal(animal);
@@ -130,7 +137,7 @@ public class AdoptionGUI {
                 id.clear();
                 name.clear();
                 age.clear();
-                gender.clear();
+                gender.setValue(null);                
                 type.setValue(null);
 
             } catch (Exception ex) {
@@ -153,6 +160,22 @@ public class AdoptionGUI {
         Button save = new Button("Save Adopter");
 
         save.setOnAction(e -> {
+            
+            if (id.getText().trim().isEmpty()
+                    || name.getText().trim().isEmpty()
+                    || phone.getText().trim().isEmpty()
+                    || address.getText().trim().isEmpty()) {
+
+                message("Please fill all fields.");
+                return;
+            }
+
+            String adopterId = id.getText().trim();
+
+            if (Main.searchAdopterById(adopterId) != null) {
+                message("Adopter ID already exists.");
+                return;
+            }
             Adopter adopter = new Adopter(id.getText(), name.getText(), phone.getText(), address.getText());
             Main.addAdopter(adopter);
             message("Adopter added successfully.");
