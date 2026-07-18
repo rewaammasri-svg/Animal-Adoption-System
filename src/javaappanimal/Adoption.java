@@ -17,7 +17,7 @@ public class Adoption {
     public Adoption(Animal animal, Adopter adopter,Date date) {
         this.animal = animal;
         this.adopter = adopter;
-        this.date = new Date();
+        this.date = date;
         this.animal.setAdopted(true);
     }
 
